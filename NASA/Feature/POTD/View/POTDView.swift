@@ -17,8 +17,8 @@ struct POTDView: View {
             VStack {
                 if let data = viewModel.photoOfTheDay {
                     data.title.map({Text($0)})
-                    data.url.map({
-                        AsyncImage(url: URL(string: $0)!)
+                    data.urlParsed.map({
+                        AsyncImage(url: $0)
                             .frame(width: UIScreen.main.bounds.width)
                             .aspectRatio(contentMode: .fit)
                             .clipped()
