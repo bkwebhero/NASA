@@ -19,6 +19,7 @@
 		9CD914AE27B35473007B2885 /* POTDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD914AD27B35473007B2885 /* POTDViewModel.swift */; };
 		9CD914B027B355DC007B2885 /* FetchPOTDUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD914AF27B355DC007B2885 /* FetchPOTDUseCase.swift */; };
 		9CD914B327B36B7E007B2885 /* PhotoOfTheDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD914B227B36B7E007B2885 /* PhotoOfTheDay.swift */; };
+		9CD914B627B427B1007B2885 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD914B527B427B1007B2885 /* APIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		9CD914AD27B35473007B2885 /* POTDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POTDViewModel.swift; sourceTree = "<group>"; };
 		9CD914AF27B355DC007B2885 /* FetchPOTDUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPOTDUseCase.swift; sourceTree = "<group>"; };
 		9CD914B227B36B7E007B2885 /* PhotoOfTheDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoOfTheDay.swift; sourceTree = "<group>"; };
+		9CD914B527B427B1007B2885 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 		9C2AECDB27B34D2100CCD6AF /* NASA */ = {
 			isa = PBXGroup;
 			children = (
+				9CD914B427B4279F007B2885 /* Services */,
 				9C2AECE027B34D2300CCD6AF /* Assets.xcassets */,
 				9C2AECDE27B34D2100CCD6AF /* RootView.swift */,
 				9CD914A327B3532B007B2885 /* Feature */,
@@ -220,6 +223,14 @@
 				9CD914B227B36B7E007B2885 /* PhotoOfTheDay.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		9CD914B427B4279F007B2885 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9CD914B527B427B1007B2885 /* APIService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,6 +369,7 @@
 				9CD914B327B36B7E007B2885 /* PhotoOfTheDay.swift in Sources */,
 				9CD914AE27B35473007B2885 /* POTDViewModel.swift in Sources */,
 				9C2AECDD27B34D2100CCD6AF /* NASAApp.swift in Sources */,
+				9CD914B627B427B1007B2885 /* APIService.swift in Sources */,
 				9CD914A627B35352007B2885 /* POTDView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

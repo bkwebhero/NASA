@@ -9,13 +9,11 @@ import Foundation
 import Combine
 
 class POTDViewModel: ObservableObject {
-    // TO-DO: Dependency injection
-    var potdUseCase: FetchPOTDUseCase = FetchPOTDUseCase()
-    
+    private var potdUseCase: FetchPOTDUseCase = FetchPOTDUseCase()
     private var subscriptions: Set<AnyCancellable> = []
     
     @Published var photoOfTheDay: PhotoOfTheDay?
-    @Published var error: ImageError?
+    @Published var error: NetworkError?
     
     func load() {
         potdUseCase.invoke()
