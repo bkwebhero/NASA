@@ -6,13 +6,36 @@
 //
 
 import SwiftUI
+import Combine
 
 struct POTDView: View {
+    
+    @ObservedObject var viewModel = POTDViewModel()
+    
     var body: some View {
-        Image(systemName: "photo.circle")
-            .resizable()
-            .frame(width: 100, height: 100)
-            .foregroundColor(.blue)
+        ScrollView {
+            VStack {
+                if let data = viewModel.photoOfTheDay {
+                    data.title.map({Text($0)})
+                    data.url.map({
+                        AsyncImage(url: URL(string: $0)!)
+                            .frame(width: UIScreen.main.bounds.width)
+                            .aspectRatio(contentMode: .fit)
+                            .clipped()
+                    })
+                    data.explanation.map({Text($0)})
+                    data.date.map({Text($0)})
+                    data.copyright.map({Text($0)})
+                }
+                if let error = viewModel.error {
+                    Text("Error: \(error.localizedDescription)")
+                }
+            }
+            .padding()
+        }
+        .onAppear {
+            viewModel.load()
+        }
     }
 }
 

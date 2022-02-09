@@ -16,6 +16,9 @@
 		9C2AECFA27B34D2400CCD6AF /* NASAUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AECF927B34D2400CCD6AF /* NASAUITestsLaunchTests.swift */; };
 		9CD914A627B35352007B2885 /* POTDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD914A527B35352007B2885 /* POTDView.swift */; };
 		9CD914AC27B353B5007B2885 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD914AB27B353B5007B2885 /* SettingsView.swift */; };
+		9CD914AE27B35473007B2885 /* POTDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD914AD27B35473007B2885 /* POTDViewModel.swift */; };
+		9CD914B027B355DC007B2885 /* FetchPOTDUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD914AF27B355DC007B2885 /* FetchPOTDUseCase.swift */; };
+		9CD914B327B36B7E007B2885 /* PhotoOfTheDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD914B227B36B7E007B2885 /* PhotoOfTheDay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,9 @@
 		9C2AECF927B34D2400CCD6AF /* NASAUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9CD914A527B35352007B2885 /* POTDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POTDView.swift; sourceTree = "<group>"; };
 		9CD914AB27B353B5007B2885 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		9CD914AD27B35473007B2885 /* POTDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POTDViewModel.swift; sourceTree = "<group>"; };
+		9CD914AF27B355DC007B2885 /* FetchPOTDUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPOTDUseCase.swift; sourceTree = "<group>"; };
+		9CD914B227B36B7E007B2885 /* PhotoOfTheDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoOfTheDay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +149,7 @@
 		9CD914A127B35318007B2885 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				9CD914AD27B35473007B2885 /* POTDViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -150,6 +157,7 @@
 		9CD914A227B35323007B2885 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				9CD914AF27B355DC007B2885 /* FetchPOTDUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -166,6 +174,7 @@
 		9CD914A427B35331007B2885 /* POTD */ = {
 			isa = PBXGroup;
 			children = (
+				9CD914B127B36B61007B2885 /* Model */,
 				9CD914A227B35323007B2885 /* UseCase */,
 				9CD914A127B35318007B2885 /* ViewModel */,
 				9CD914A027B3530E007B2885 /* View */,
@@ -203,6 +212,14 @@
 			children = (
 			);
 			path = UseCase;
+			sourceTree = "<group>";
+		};
+		9CD914B127B36B61007B2885 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9CD914B227B36B7E007B2885 /* PhotoOfTheDay.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,7 +353,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C2AECDF27B34D2100CCD6AF /* RootView.swift in Sources */,
+				9CD914B027B355DC007B2885 /* FetchPOTDUseCase.swift in Sources */,
 				9CD914AC27B353B5007B2885 /* SettingsView.swift in Sources */,
+				9CD914B327B36B7E007B2885 /* PhotoOfTheDay.swift in Sources */,
+				9CD914AE27B35473007B2885 /* POTDViewModel.swift in Sources */,
 				9C2AECDD27B34D2100CCD6AF /* NASAApp.swift in Sources */,
 				9CD914A627B35352007B2885 /* POTDView.swift in Sources */,
 			);
