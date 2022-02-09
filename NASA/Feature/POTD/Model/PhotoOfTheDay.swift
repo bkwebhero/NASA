@@ -8,15 +8,19 @@
 import Foundation
 
 struct PhotoOfTheDay: Codable {
-    var copyright, date, explanation: String?
+    let copyright: String?
+    let date: String?
+    let explanation: String?
     let hdurl: String?
-    let mediaType, serviceVersion, title: String?
+    let mediaType: String?
+    let serviceVersion: String?
+    let title: String?
     let url: String?
+}
 
-    enum CodingKeys: String, CodingKey {
-        case copyright, date, explanation, hdurl
-        case mediaType
-        case serviceVersion
-        case title, url
+extension PhotoOfTheDay {
+    var urlParsed: URL? {
+        guard let url = self.url else { return nil }
+        return URL(string: url)
     }
 }
