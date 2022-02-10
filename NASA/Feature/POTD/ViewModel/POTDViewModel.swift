@@ -12,11 +12,13 @@ class POTDViewModel: ObservableObject {
     private var potdUseCase: FetchPOTDUseCase = FetchPOTDUseCase()
     private var subscriptions: Set<AnyCancellable> = []
     
+    @Published var selectedDate: Date = Date()
     @Published var photoOfTheDay: PhotoOfTheDay?
     @Published var error: NetworkError?
     
     func load() {
-        potdUseCase.invoke()
+        photoOfTheDay = nil
+        potdUseCase.invoke(for: selectedDate)
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {
@@ -32,4 +34,23 @@ class POTDViewModel: ObservableObject {
             .store(in: &subscriptions)
     }
     
+    var title: String? {
+        return photoOfTheDay?.title
+    }
+    
+    var url: URL? {
+        return photoOfTheDay?.urlParsed
+    }
+    
+    var explanation: String? {
+        return photoOfTheDay?.explanation
+    }
+    
+    var copyright: String? {
+        return photoOfTheDay?.copyright
+    }
+    
+    var isVideo: Bool {
+        return url?.absoluteString.contains("youtube") ?? false
+    }
 }
