@@ -22,13 +22,21 @@ extension Date {
     }
     
     func toFriendlyString() -> String {
-        if Calendar.current.isDateInToday(self) {
+        if isToday {
             return "Today"
-        } else if Calendar.current.isDateInYesterday(self) {
+        } else if isYesterday {
             return "Yesterday"
         } else {
             return toString(style: .medium)
         }
+    }
+    
+    var isToday: Bool {
+        return Calendar.current.isDateInToday(self)
+    }
+    
+    var isYesterday: Bool {
+        return Calendar.current.isDateInYesterday(self)
     }
     
 }
