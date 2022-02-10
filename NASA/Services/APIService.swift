@@ -12,10 +12,7 @@ class APIService {
     
     // TO-DO: Make protocol
     // TO-DO: Unit tests
-    func makeNetworkRequest<T: Decodable>(url: String, responseType: T.Type) -> AnyPublisher<T, NetworkError> {
-        guard let url = URL(string: url) else {
-            return Result.Publisher(NetworkError.invalidURL).eraseToAnyPublisher()
-        }
+    func makeNetworkRequest<T: Decodable>(url: URL, responseType: T.Type) -> AnyPublisher<T, NetworkError> {
 
         let config = URLSessionConfiguration.default
         config.requestCachePolicy = .reloadIgnoringLocalCacheData
