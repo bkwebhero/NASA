@@ -11,31 +11,70 @@ import Combine
 struct POTDView: View {
     
     @ObservedObject var viewModel = POTDViewModel()
+    private var horizontalPadding: CGFloat = 16
     
     var body: some View {
         ScrollView {
-            VStack {
-                if let data = viewModel.photoOfTheDay {
-                    data.title.map({Text($0)})
-                    data.urlParsed.map({
-                        AsyncImage(url: $0)
-                            .frame(width: UIScreen.main.bounds.width)
-                            .aspectRatio(contentMode: .fit)
-                            .clipped()
-                    })
-                    data.explanation.map({Text($0)})
-                    data.date.map({Text($0)})
-                    data.copyright.map({Text($0)})
-                }
-                if let error = viewModel.error {
+            VStack (alignment: .leading, spacing: 16) {
+                
+                // If there is data, display it
+                if let _ = viewModel.photoOfTheDay {
+                    
+                    // Show the title if it exists
+                    viewModel.title.map({Text($0).font(.title)})
+                    
+                    // Show a date picker
+                    DatePicker(selection: $viewModel.selectedDate, in: ...Date(), displayedComponents: .date) {
+                        Text("Date:")
+                    }
+                    // Need to set zIndex due to SwiftUI bug where date picker is sometimes not tappable
+                    // zIndex brings to the front of the view
+                    .zIndex(1)
+                    
+                    // If we have a URL, need to know if it is a photo or a video
+                    if let url = viewModel.url {
+                        
+                        // If it is a video, load it in an embedded webview
+                        if viewModel.isVideo {
+                            YouTubeView(url: url)
+                                .frame(width: UIScreen.main.bounds.width - (horizontalPadding * 2),
+                                       height: UIScreen.main.bounds.height * 0.3)
+                                .cornerRadius(12)
+                            
+                        // If it is an image, load it asynchronously
+                        } else {
+                            NavigationLink(destination: ImagePreview(url: url)) {
+                                AsyncImage(url: url)
+                                    .frame(width: UIScreen.main.bounds.width - (horizontalPadding * 2),
+                                           height: UIScreen.main.bounds.height * 0.3)
+                                    .cornerRadius(12)
+                                    .aspectRatio(contentMode: .fit)
+                                    .clipped()
+                            }
+                        }
+                    }
+                    
+                    // Show explanation and copyright holder if applicable
+                    viewModel.explanation.map({Text($0).font(.body)})
+                    viewModel.copyright.map({Text($0).font(.footnote)})
+                    
+                // If there is no data and an error, show the error
+                } else if let error = viewModel.error {
                     Text("Error: \(error.localizedDescription)")
                 }
             }
-            .padding()
+            .padding(.horizontal, horizontalPadding)
         }
         .onAppear {
+            // On first appearance, load data
             viewModel.load()
         }
+        .onChange(of: viewModel.selectedDate) { _ in
+            // On changing the selected date, load data
+            viewModel.load()
+        }
+        // Update navigation bar title with selected date
+        .navigationTitle(viewModel.selectedDate.toFriendlyString())
     }
 }
 
