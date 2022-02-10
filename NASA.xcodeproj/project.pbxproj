@@ -23,6 +23,8 @@
 		9CD914B827B435CE007B2885 /* YouTubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD914B727B435CE007B2885 /* YouTubeView.swift */; };
 		9CD914BB27B47B50007B2885 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD914BA27B47B50007B2885 /* DateExtensions.swift */; };
 		9CD914C127B4B419007B2885 /* ImagePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD914C027B4B419007B2885 /* ImagePreview.swift */; };
+		9CD914C627B5A591007B2885 /* SolarSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD914C527B5A591007B2885 /* SolarSystem.swift */; };
+		9CD914C827B5A5D5007B2885 /* Body.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD914C727B5A5D5007B2885 /* Body.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		9CD914B727B435CE007B2885 /* YouTubeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeView.swift; sourceTree = "<group>"; };
 		9CD914BA27B47B50007B2885 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		9CD914C027B4B419007B2885 /* ImagePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreview.swift; sourceTree = "<group>"; };
+		9CD914C527B5A591007B2885 /* SolarSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystem.swift; sourceTree = "<group>"; };
+		9CD914C727B5A5D5007B2885 /* Body.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Body.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +181,7 @@
 		9CD914A327B3532B007B2885 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				9CD914C327B5A3DA007B2885 /* SolarSystem */,
 				9CD914A427B35331007B2885 /* POTD */,
 				9CD914A727B35385007B2885 /* Settings */,
 			);
@@ -248,6 +253,23 @@
 				9CD914BA27B47B50007B2885 /* DateExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9CD914C327B5A3DA007B2885 /* SolarSystem */ = {
+			isa = PBXGroup;
+			children = (
+				9CD914C427B5A407007B2885 /* Model */,
+			);
+			path = SolarSystem;
+			sourceTree = "<group>";
+		};
+		9CD914C427B5A407007B2885 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9CD914C527B5A591007B2885 /* SolarSystem.swift */,
+				9CD914C727B5A5D5007B2885 /* Body.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,10 +404,12 @@
 			files = (
 				9C2AECDF27B34D2100CCD6AF /* RootView.swift in Sources */,
 				9CD914BB27B47B50007B2885 /* DateExtensions.swift in Sources */,
+				9CD914C627B5A591007B2885 /* SolarSystem.swift in Sources */,
 				9CD914B027B355DC007B2885 /* FetchPOTDUseCase.swift in Sources */,
 				9CD914B827B435CE007B2885 /* YouTubeView.swift in Sources */,
 				9CD914AC27B353B5007B2885 /* SettingsView.swift in Sources */,
 				9CD914B327B36B7E007B2885 /* PhotoOfTheDay.swift in Sources */,
+				9CD914C827B5A5D5007B2885 /* Body.swift in Sources */,
 				9CD914AE27B35473007B2885 /* POTDViewModel.swift in Sources */,
 				9C2AECDD27B34D2100CCD6AF /* NASAApp.swift in Sources */,
 				9CD914B627B427B1007B2885 /* APIService.swift in Sources */,
