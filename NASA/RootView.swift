@@ -10,10 +10,12 @@ import SwiftUI
 struct RootView: View {
     var body: some View {
         TabView {
-            POTDView()
-                .tabItem {
-                    Label("POTD", systemImage: "photo.circle")
-                }
+            NavigationView {
+                POTDView()
+            }
+            .tabItem {
+                Label("POTD", systemImage: "photo.circle")
+            }
             SettingsView()
                 .tabItem {
                     Label("Settings", systemImage: "list.dash")
