@@ -10,6 +10,7 @@ import Combine
 
 struct POTDView: View {
     
+    @State var loaded: Bool = false
     @ObservedObject var viewModel = POTDViewModel()
     private var horizontalPadding: CGFloat = 16
     
@@ -44,12 +45,30 @@ struct POTDView: View {
                         // If it is an image, load it asynchronously
                         } else {
                             NavigationLink(destination: ImagePreview(url: url)) {
-                                AsyncImage(url: url)
-                                    .frame(width: UIScreen.main.bounds.width - (horizontalPadding * 2),
-                                           height: UIScreen.main.bounds.height * 0.3)
-                                    .cornerRadius(12)
-                                    .aspectRatio(contentMode: .fit)
-                                    .clipped()
+                                ZStack {
+                                    AsyncImage(url: url)
+                                        .frame(width: UIScreen.main.bounds.width - (horizontalPadding * 2),
+                                               height: UIScreen.main.bounds.height * 0.3)
+                                        .cornerRadius(12)
+                                        .aspectRatio(contentMode: .fit)
+                                        .clipped()
+                                    VStack {
+                                        Spacer()
+                                        HStack {
+                                            Spacer()
+                                            Image(systemName: "arrow.up.left.and.arrow.down.right")
+                                                .resizable()
+                                                .padding()
+                                                .frame(width: 50, height: 50)
+                                                .aspectRatio(contentMode: .fit)
+                                                .foregroundColor(.white)
+                                                .background(.black)
+                                                .opacity(0.8)
+                                                .cornerRadius(12)
+                                        }
+                                    }
+                                    .padding()
+                                }
                             }
                         }
                     }
@@ -67,6 +86,8 @@ struct POTDView: View {
         }
         .onAppear {
             // On first appearance, load data
+            guard !loaded else { return }
+            loaded = true
             viewModel.load()
         }
         .onChange(of: viewModel.selectedDate) { _ in
