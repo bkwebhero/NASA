@@ -28,6 +28,24 @@ struct Body: Codable {
     let rel: String?
 }
 
+extension Body {
+    var discoveryDetails: String? {
+        if let discoveredBy = discoveredBy, !discoveredBy.isEmpty, let discoveryDate = discoveryDate, !discoveryDate.isEmpty {
+            return "Discovered by \(discoveredBy) roughly \(discoveryDate)"
+        } else if let discoveredBy = discoveredBy, !discoveredBy.isEmpty {
+            return "Discovered by \(discoveredBy)"
+        } else if let discoveryDate = discoveryDate, !discoveryDate.isEmpty {
+            return "Discovered roughly \(discoveryDate)"
+        } else {
+            return nil
+        }
+    }
+    
+    var moonCount: Int {
+        return moons?.count ?? 0
+    }
+}
+
 struct AroundPlanet: Codable {
     let planet: String?
     let rel: String?

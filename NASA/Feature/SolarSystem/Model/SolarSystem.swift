@@ -12,3 +12,13 @@ import Foundation
 struct SolarSystem: Codable {
     let bodies: [Body]?
 }
+
+struct Planets: Codable {
+    let bodies: [Body]?
+}
+
+extension SolarSystem {
+    var planets: [Body] {
+        return bodies?.filter{ $0.isPlanet ?? false } ?? []
+    }
+}
