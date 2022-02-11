@@ -12,21 +12,25 @@ struct RootView: View {
         TabView {
             NavigationView {
                 POTDView()
+                    .background(NightSkyView())
             }
             .tabItem {
                 Label("POTD", systemImage: "photo.circle")
             }
             NavigationView {
-                SolarSystemView()
+                PlanetsView()
+                    .background(NightSkyView())
             }
             .tabItem {
-                Label("Solar System", systemImage: "moon.fill")
+                Label("Planets", systemImage: "moon.fill")
             }
             SettingsView()
+                .background(NightSkyView())
                 .tabItem {
                     Label("Settings", systemImage: "list.dash")
                 }
         }
+        
     }
 }
 

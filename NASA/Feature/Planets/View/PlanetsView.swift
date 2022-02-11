@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SolarSystemView: View {
+struct PlanetsView: View {
     
     @ObservedObject var viewModel = SolarSystemViewModel()
     
@@ -28,7 +28,6 @@ struct SolarSystemView: View {
                 Spacer()
             }
         }
-        .background(NightSkyView())
         .onAppear {
             viewModel.load()
         }
@@ -36,8 +35,8 @@ struct SolarSystemView: View {
     }
 }
 
-struct SolarSystemView_Previews: PreviewProvider {
+struct PlanetsView_Previews: PreviewProvider {
     static var previews: some View {
-        SolarSystemView()
+        PlanetsView()
     }
 }
