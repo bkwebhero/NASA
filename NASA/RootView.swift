@@ -16,6 +16,12 @@ struct RootView: View {
             .tabItem {
                 Label("POTD", systemImage: "photo.circle")
             }
+            NavigationView {
+                SolarSystemView()
+            }
+            .tabItem {
+                Label("Solar System", systemImage: "moon.fill")
+            }
             SettingsView()
                 .tabItem {
                     Label("Settings", systemImage: "list.dash")
